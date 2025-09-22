@@ -14,8 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
-    env:
-      VITE_APIURL: ${{ secrets.VITE_APIURL }}
 
     steps:
       - uses: actions/checkout@v4
@@ -34,8 +32,8 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: node-app
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,8 +46,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: node-app
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -64,5 +61,5 @@ jobs:
         with:
           app-name: 'picboard'
           slot-name: 'Production'
-          package: dist
+          package: .
           
