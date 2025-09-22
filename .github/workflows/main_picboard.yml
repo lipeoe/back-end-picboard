@@ -34,8 +34,8 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
-          path: .
+          name: dist
+          path: dist
 
   deploy:
     runs-on: ubuntu-latest
@@ -48,7 +48,8 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: dist
+          path: dist
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -63,5 +64,5 @@ jobs:
         with:
           app-name: 'picboard'
           slot-name: 'Production'
-          package: .
+          package: dist
           
