@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -28,7 +28,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-      
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -51,13 +51,13 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_2D51E2CDE07A4BCEBB95F24361F1AB69 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C6B8EF1945D8420F96D26EB2732397B8 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7D022EC3AD2747668FF26ABD9E55622E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6A895418F6004593B7CD0A9FEFB0A4BD }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_50EBFB009E734CECB420CC0BF0785F54 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B20972293EE2469090E6C17735AA5C0D }}
 
       - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
         with:
           app-name: 'picboard'
           slot-name: 'Production'
