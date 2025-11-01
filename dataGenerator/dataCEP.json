@@ -1,0 +1,402 @@
+{
+  "Centro": {
+    "distritos": [
+      {
+        "nome": "Sé",
+        "cep_inicio": "01000-000",
+        "cep_fim": "01099-999"
+      },
+      {
+        "nome": "República",
+        "cep_inicio": "01000-000",
+        "cep_fim": "01099-999"
+      },
+      {
+        "nome": "Bom Retiro",
+        "cep_inicio": "01100-000",
+        "cep_fim": "01199-999"
+      },
+      {
+        "nome": "Barra Funda",
+        "cep_inicio": "01100-000",
+        "cep_fim": "01199-999"
+      },
+      {
+        "nome": "Santa Cecília",
+        "cep_inicio": "01200-000",
+        "cep_fim": "01299-999"
+      },
+      {
+        "nome": "Consolação",
+        "cep_inicio": "01200-000",
+        "cep_fim": "01299-999"
+      },
+      {
+        "nome": "Consolação",
+        "cep_inicio": "01300-000",
+        "cep_fim": "01399-999"
+      },
+      {
+        "nome": "Bela Vista",
+        "cep_inicio": "01300-000",
+        "cep_fim": "01399-999"
+      },
+      {
+        "nome": "Liberdade",
+        "cep_inicio": "01500-000",
+        "cep_fim": "01599-999"
+      },
+      {
+        "nome": "Cambuci",
+        "cep_inicio": "01500-000",
+        "cep_fim": "01599-999"
+      }
+    ]
+  },
+  "Norte": {
+    "distritos": [
+      {
+        "nome": "Santana",
+        "cep_inicio": "02000-000",
+        "cep_fim": "02099-999"
+      },
+      {
+        "nome": "Tucuruvi",
+        "cep_inicio": "02200-000",
+        "cep_fim": "02299-999"
+      },
+      {
+        "nome": "Jaçanã",
+        "cep_inicio": "02200-000",
+        "cep_fim": "02299-999"
+      },
+      {
+        "nome": "Tremembé",
+        "cep_inicio": "02300-000",
+        "cep_fim": "02399-999"
+      },
+      {
+        "nome": "Mandaqui",
+        "cep_inicio": "02400-000",
+        "cep_fim": "02499-999"
+      },
+      {
+        "nome": "Casa Verde",
+        "cep_inicio": "02500-000",
+        "cep_fim": "02599-999"
+      },
+      {
+        "nome": "Cachoeirinha",
+        "cep_inicio": "02600-000",
+        "cep_fim": "02699-999"
+      },
+      {
+        "nome": "Limão",
+        "cep_inicio": "02700-000",
+        "cep_fim": "02799-999"
+      },
+      {
+        "nome": "Brasilândia",
+        "cep_inicio": "02800-000",
+        "cep_fim": "02899-999"
+      },
+      {
+        "nome": "Freguesia do Ó",
+        "cep_inicio": "02900-000",
+        "cep_fim": "02999-999"
+      },
+      {
+        "nome": "Pirituba",
+        "cep_inicio": "02900-000",
+        "cep_fim": "02999-999"
+      },
+      {
+        "nome": "Pirituba",
+        "cep_inicio": "05100-000",
+        "cep_fim": "05199-999"
+      },
+      {
+        "nome": "São Domingos",
+        "cep_inicio": "05100-000",
+        "cep_fim": "05199-999"
+      },
+      {
+        "nome": "Jaraguá",
+        "cep_inicio": "05200-000",
+        "cep_fim": "05299-999"
+      },
+      {
+        "nome": "Perus",
+        "cep_inicio": "05200-000",
+        "cep_fim": "05299-999"
+      }
+    ]
+  },
+  "Leste": {
+    "distritos": [
+      {
+        "nome": "Belém",
+        "cep_inicio": "03000-000",
+        "cep_fim": "03099-999"
+      },
+      {
+        "nome": "Brás",
+        "cep_inicio": "03000-000",
+        "cep_fim": "03099-999"
+      },
+      {
+        "nome": "Pari",
+        "cep_inicio": "03000-000",
+        "cep_fim": "03099-999"
+      },
+      {
+        "nome": "Mooca",
+        "cep_inicio": "03100-000",
+        "cep_fim": "03199-999"
+      },
+      {
+        "nome": "Vila Prudente",
+        "cep_inicio": "03100-000",
+        "cep_fim": "03199-999"
+      },
+      {
+        "nome": "Água Rasa",
+        "cep_inicio": "03100-000",
+        "cep_fim": "03199-999"
+      },
+      {
+        "nome": "São Lucas",
+        "cep_inicio": "03200-000",
+        "cep_fim": "03299-999"
+      },
+      {
+        "nome": "Sapopemba",
+        "cep_inicio": "03200-000",
+        "cep_fim": "03299-999"
+      },
+      {
+        "nome": "Tatuapé",
+        "cep_inicio": "03300-000",
+        "cep_fim": "03399-999"
+      },
+      {
+        "nome": "Vila Formosa",
+        "cep_inicio": "03300-000",
+        "cep_fim": "03399-999"
+      },
+      {
+        "nome": "Vila Carrão",
+        "cep_inicio": "03400-000",
+        "cep_fim": "03499-999"
+      },
+      {
+        "nome": "Vila Matilde",
+        "cep_inicio": "03500-000",
+        "cep_fim": "03599-999"
+      },
+      {
+        "nome": "Artur Alvim",
+        "cep_inicio": "03500-000",
+        "cep_fim": "03599-999"
+      },
+      {
+        "nome": "Penha",
+        "cep_inicio": "03600-000",
+        "cep_fim": "03699-999"
+      },
+      {
+        "nome": "Cangaíba",
+        "cep_inicio": "03700-000",
+        "cep_fim": "03799-999"
+      },
+      {
+        "nome": "Ponte Rasa",
+        "cep_inicio": "03700-000",
+        "cep_fim": "03799-999"
+      },
+      {
+        "nome": "Ermelino Matarazzo",
+        "cep_inicio": "03800-000",
+        "cep_fim": "03899-999"
+      },
+      {
+        "nome": "São Mateus",
+        "cep_inicio": "03900-000",
+        "cep_fim": "03999-999"
+      },
+      {
+        "nome": "São Miguel",
+        "cep_inicio": "08000-000",
+        "cep_fim": "08099-999"
+      },
+      {
+        "nome": "Itaim Paulista",
+        "cep_inicio": "08100-000",
+        "cep_fim": "08199-999"
+      },
+      {
+        "nome": "Itaquera",
+        "cep_inicio": "08200-000",
+        "cep_fim": "08299-999"
+      },
+      {
+        "nome": "Guaianases",
+        "cep_inicio": "08400-000",
+        "cep_fim": "08499-999"
+      },
+      {
+        "nome": "Cidade Tiradentes",
+        "cep_inicio": "08300-000",
+        "cep_fim": "08399-999"
+      }
+    ]
+  },
+  "Sul": {
+    "distritos": [
+      {
+        "nome": "Vila Mariana",
+        "cep_inicio": "04000-000",
+        "cep_fim": "04099-999"
+      },
+      {
+        "nome": "Moema",
+        "cep_inicio": "04000-000",
+        "cep_fim": "04099-999"
+      },
+      {
+        "nome": "Saúde",
+        "cep_inicio": "04100-000",
+        "cep_fim": "04199-999"
+      },
+      {
+        "nome": "Ipiranga",
+        "cep_inicio": "04200-000",
+        "cep_fim": "04299-999"
+      },
+      {
+        "nome": "Sacomã",
+        "cep_inicio": "04200-000",
+        "cep_fim": "04299-999"
+      },
+      {
+        "nome": "Jabaquara",
+        "cep_inicio": "04300-000",
+        "cep_fim": "04399-999"
+      },
+      {
+        "nome": "Cidade Ademar",
+        "cep_inicio": "04400-000",
+        "cep_fim": "04499-999"
+      },
+      {
+        "nome": "Pedreira",
+        "cep_inicio": "04400-000",
+        "cep_fim": "04499-999"
+      },
+      {
+        "nome": "Campo Belo",
+        "cep_inicio": "04600-000",
+        "cep_fim": "04699-999"
+      },
+      {
+        "nome": "Santo Amaro",
+        "cep_inicio": "04700-000",
+        "cep_fim": "04799-999"
+      },
+      {
+        "nome": "Cidade Dutra",
+        "cep_inicio": "04800-000",
+        "cep_fim": "04899-999"
+      },
+      {
+        "nome": "Grajaú",
+        "cep_inicio": "04800-000",
+        "cep_fim": "04899-999"
+      },
+      {
+        "nome": "Parelheiros",
+        "cep_inicio": "04800-000",
+        "cep_fim": "04899-999"
+      },
+      {
+        "nome": "Capela do Socorro",
+        "cep_inicio": "04900-000",
+        "cep_fim": "04999-999"
+      },
+      {
+        "nome": "Campo Limpo",
+        "cep_inicio": "05700-000",
+        "cep_fim": "05799-999"
+      },
+      {
+        "nome": "Capão Redondo",
+        "cep_inicio": "05800-000",
+        "cep_fim": "05899-999"
+      }
+    ]
+  },
+  "Oeste": {
+    "distritos": [
+      {
+        "nome": "Lapa",
+        "cep_inicio": "05000-000",
+        "cep_fim": "05099-999"
+      },
+      {
+        "nome": "Perdizes",
+        "cep_inicio": "05000-000",
+        "cep_fim": "05099-999"
+      },
+      {
+        "nome": "Jaguara",
+        "cep_inicio": "05100-000",
+        "cep_fim": "05199-999"
+      },
+      {
+        "nome": "Vila Leopoldina",
+        "cep_inicio": "05300-000",
+        "cep_fim": "05399-999"
+      },
+      {
+        "nome": "Jaguaré",
+        "cep_inicio": "05300-000",
+        "cep_fim": "05399-999"
+      },
+      {
+        "nome": "Rio Pequeno",
+        "cep_inicio": "05300-000",
+        "cep_fim": "05399-999"
+      },
+      {
+        "nome": "Pinheiros",
+        "cep_inicio": "05400-000",
+        "cep_fim": "05499-999"
+      },
+      {
+        "nome": "Alto de Pinheiros",
+        "cep_inicio": "05400-000",
+        "cep_fim": "05499-999"
+      },
+      {
+        "nome": "Butantã",
+        "cep_inicio": "05500-000",
+        "cep_fim": "05599-999"
+      },
+      {
+        "nome": "Morumbi",
+        "cep_inicio": "05600-000",
+        "cep_fim": "05699-999"
+      },
+      {
+        "nome": "Vila Sônia",
+        "cep_inicio": "05600-000",
+        "cep_fim": "05699-999"
+      },
+      {
+        "nome": "Jardim Paulista",
+        "cep_inicio": "01400-000",
+        "cep_fim": "01499-999"
+      }
+    ]
+  }
+}

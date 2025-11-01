@@ -1,0 +1,66 @@
+{
+  "Cafeteria": [
+    "Starbucks"
+  ],
+  "Clínicas Médicas e Laboratórios": [
+    "Lavoisier"
+  ],
+  "Clube / Cultura & Esporte": [
+    "Clube Pinheiros",
+    "Sesc Carmo",
+    "Sesc Paulista"
+  ],
+  "Eletro & Móveis": [
+    "Casas Bahia",
+    "Fast Shop",
+    "Lojas Americanas",
+    "Magazine Luiza",
+    "Ponto Frio"
+  ],
+  "Esporte & Fitness": [
+    "Just Run",
+    "Selfit",
+    "Smart Fit"
+  ],
+  "Farmácia": [
+    "Drogra Raia",
+    "Drogaria São Paulo",
+    "Drogasil"
+  ],
+  "Livraria": [
+    "Livraria Cultura"
+  ],
+  "Moda": [
+    "Forever 21",
+    "Havaianas",
+    "Riachuelo",
+    "Renner"
+  ],
+  "Papelaria": [
+    "Kalunga"
+  ],
+  "Restaurante": [
+    "Açaí no Ponto",
+    "Burger King",
+    "Café Cultura",
+    "Churrascaria Boi Preto",
+    "Habib's",
+    "Madero",
+    "McDonald's",
+    "Octavio Café",
+    "Outback",
+    "Ráscal",
+    "Subway"
+  ],
+  "Saúde":[
+    "Fleury",
+    "Lavoisier",
+    "Sabin"
+  ],
+  "Supermercado & Conveniência": [
+    "Carrefour Express",
+    "Daiso Japan",
+    "Extra",
+    "Pão de Açúcar"
+  ]
+}

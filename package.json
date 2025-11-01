@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "@faker-js/faker": "^10.1.0",
     "cors": "^2.8.5",
+    "dayjs": "^1.11.19",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10",
+    "jsonwebtoken": "^9.0.2",
     "npm": "^11.6.0",
     "pg": "^8.16.3"
   },

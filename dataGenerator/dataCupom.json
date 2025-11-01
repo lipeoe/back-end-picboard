@@ -1,0 +1,7 @@
+{
+    "tipo_cupom": [
+        "Produto",
+        "Cashback",
+        "Desconto"
+    ]
+}
