@@ -27,8 +27,8 @@ function inferProduto(category, tipo) {
 }
 
 function estimateRepasse(valor_cupom, valor_compra) {
-  if (valor_cupom && valor_cupom > 0) return Number((valor_cupom * 0.10).toFixed(2));
-  if (valor_compra && valor_compra > 0) return Number((valor_compra * 0.02).toFixed(2));
+  if (valor_cupom && valor_cupom > 0) return Number((valor_cupom * 0.13).toFixed(2));
+  if (valor_compra && valor_compra > 0) return Number((valor_compra * 0.07).toFixed(2));
   return 0;
 }
 
@@ -76,6 +76,8 @@ function generateBatch({
       valor_cupom = Number((valor_compra * (0.05 + rng() * 0.35)).toFixed(2));
     } else if (tipo_cupom === "Cashback") {
       valor_cupom = Number((valor_compra * (0.02 + rng() * 0.18)).toFixed(2));
+    } else {
+      valor_cupom = Number((valor_compra * (0.03 + rng() * 0.22)).toFixed(2))
     }
 
     const repasse_picmoney = estimateRepasse(valor_cupom, valor_compra);
