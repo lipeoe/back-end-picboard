@@ -3,72 +3,71 @@ const router = express.Router()
 const picboardDB = require("../db/db")
 
 const SQL_TICKET_MEDIO = `
-    SELECT COALESCE(AVG(valor_cupom), 0)::numeric AS ticket_medio
-    FROM picmoney_transacoes;
+  SELECT COALESCE(AVG(valor_cupom), 0)::numeric AS ticket_medio
+  FROM picmoney_unificada;
 `
 
 const SQL_PERFORMANCE_POR_TIPO_CUPOM = `
-    WITH agg AS (
-      SELECT
-        COALESCE(NULLIF(TRIM(tipo_cupom), ''), '(Sem tipo)') AS tipo_cupom,
-        COUNT(*)                               AS quantidade,
-        SUM(valor_cupom)::numeric              AS total_valor_cupom,
-        AVG(valor_cupom)::numeric              AS ticket_medio,
-        SUM(repasse_picmoney)::numeric         AS total_repasse,
-        (SUM(valor_cupom) - SUM(repasse_picmoney))::numeric AS receita_liquida
-      FROM picmoney_transacoes
-      GROUP BY 1
-    )
+  WITH agg AS (
     SELECT
-      tipo_cupom,
-      quantidade,
-      total_valor_cupom,
-      ticket_medio,
-      total_repasse,
-      receita_liquida,
-      ROUND(
-        (total_valor_cupom / NULLIF(SUM(total_valor_cupom) OVER (), 0)) * 100
-      , 2) AS participacao_percentual
-    FROM agg
-    ORDER BY total_valor_cupom DESC, tipo_cupom;
-
+      COALESCE(NULLIF(TRIM(tipo_cupom), ''), '(Sem tipo)') AS tipo_cupom,
+      COUNT(*)::bigint                         AS quantidade,
+      COALESCE(SUM(valor_cupom), 0)::numeric  AS total_valor_cupom,
+      COALESCE(AVG(valor_cupom), 0)::numeric  AS ticket_medio,
+      COALESCE(SUM(repasse_picmoney), 0)::numeric AS total_repasse,
+      (COALESCE(SUM(valor_cupom), 0) - COALESCE(SUM(repasse_picmoney), 0))::numeric AS receita_liquida
+    FROM picmoney_unificada
+    GROUP BY 1
+  )
+  SELECT
+    tipo_cupom,
+    quantidade,
+    total_valor_cupom,
+    ticket_medio,
+    total_repasse,
+    receita_liquida,
+    ROUND(
+      (total_valor_cupom / NULLIF(SUM(total_valor_cupom) OVER (), 0)) * 100
+    , 2) AS participacao_percentual
+  FROM agg
+  ORDER BY total_valor_cupom DESC, tipo_cupom;
 `
 
 const SQL_PERFORMANCE_POR_PERIODO_DIA = `
-    WITH base AS (
-      SELECT
-        CASE
-          WHEN hora >= TIME '06:00' AND hora < TIME '12:00' THEN 'Manhã'
-          WHEN hora >= TIME '12:00' AND hora < TIME '18:00' THEN 'Tarde'
-          WHEN hora >= TIME '18:00' AND hora < TIME '23:00' THEN 'Noite'
-        END AS periodo,
-        valor_cupom
-      FROM picmoney_transacoes
-      WHERE hora >= TIME '06:00' AND hora < TIME '23:00'  -- sem madrugada
-    ),
-    agg AS (
-      SELECT
-        periodo,
-        COUNT(*)                  AS quantidade,
-        SUM(valor_cupom)::numeric AS total_valor_cupom,
-        AVG(valor_cupom)::numeric AS ticket_medio
-      FROM base
-      GROUP BY periodo
-    )
+  WITH base AS (
+    SELECT
+      CASE
+        WHEN EXTRACT(HOUR FROM hora) >= 6 AND EXTRACT(HOUR FROM hora) < 12 THEN 'Manhã'
+        WHEN EXTRACT(HOUR FROM hora) >= 12 AND EXTRACT(HOUR FROM hora) < 18 THEN 'Tarde'
+        WHEN EXTRACT(HOUR FROM hora) >= 18 AND EXTRACT(HOUR FROM hora) < 23 THEN 'Noite'
+      END AS periodo,
+      valor_cupom
+    FROM picmoney_unificada
+    WHERE EXTRACT(HOUR FROM hora) >= 6 AND EXTRACT(HOUR FROM hora) < 23 -- sem madrugada
+  ),
+  agg AS (
     SELECT
       periodo,
-      quantidade,
-      total_valor_cupom,
-      ticket_medio,
-      ROUND(
-        (total_valor_cupom / NULLIF(SUM(total_valor_cupom) OVER (), 0)) * 100
-      , 2) AS participacao_percentual
-    FROM agg
-    ORDER BY CASE periodo
-      WHEN 'Manhã' THEN 1
-      WHEN 'Tarde' THEN 2
-      WHEN 'Noite' THEN 3
-    END;
+      COUNT(*)::bigint                       AS quantidade,
+      COALESCE(SUM(valor_cupom), 0)::numeric AS total_valor_cupom,
+      COALESCE(AVG(valor_cupom), 0)::numeric AS ticket_medio
+    FROM base
+    GROUP BY periodo
+  )
+  SELECT
+    periodo,
+    quantidade,
+    total_valor_cupom,
+    ticket_medio,
+    ROUND(
+      (total_valor_cupom / NULLIF(SUM(total_valor_cupom) OVER (), 0)) * 100
+    , 2) AS participacao_percentual
+  FROM agg
+  ORDER BY CASE periodo
+    WHEN 'Manhã' THEN 1
+    WHEN 'Tarde' THEN 2
+    WHEN 'Noite' THEN 3
+  END;
 `
 
 const SQL_PARTICIPACAO_DIARIA = `
@@ -84,9 +83,9 @@ const SQL_PARTICIPACAO_DIARIA = `
         WHEN 6 THEN 'Sábado'
         WHEN 7 THEN 'Domingo'
       END AS dia_semana,
-      AVG(valor_cupom)::numeric AS ticket_medio,
-      SUM(valor_cupom)::numeric AS total_por_dia
-    FROM picmoney_transacoes
+      COALESCE(AVG(valor_cupom), 0)::numeric AS ticket_medio,
+      COALESCE(SUM(valor_cupom), 0)::numeric AS total_por_dia
+    FROM picmoney_unificada
     GROUP BY dow, dia_semana
   )
   SELECT
@@ -97,7 +96,6 @@ const SQL_PARTICIPACAO_DIARIA = `
     ROUND((total_por_dia / NULLIF(SUM(total_por_dia) OVER (), 0)) * 100, 2) AS participacao_percentual
   FROM agg
   ORDER BY total_por_dia DESC;
-
 `
 
 router.get("/kpis/ticket-medio", async (req, res) =>{
