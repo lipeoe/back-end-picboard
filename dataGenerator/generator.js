@@ -122,4 +122,4 @@ function generateBatch({
   return out.slice(0, count);
 }
 
-module.exports = { generateBatch };
+module.exports = { generateBatch }
