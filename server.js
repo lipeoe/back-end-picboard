@@ -1,8 +1,10 @@
+require('dotenv').config()
 const express = require("express")
 const cors = require("cors")
 const kpisCEO = require("./routes/ceoRoutes")
 const kpisCFO = require("./routes/cfoRoutes")
 const userLogin = require("./routes/loginRoutes")
+const { startScheduler } = require("./jobs/jobScheduler")
 const PORT = process.env.PORT || 3001
 
 const app = express()
@@ -25,4 +27,5 @@ app.listen(PORT, async () =>{
             console.error('Seed on boot failed:', e.message)
         }
     }
+    startScheduler()
 })
