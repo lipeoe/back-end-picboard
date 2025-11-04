@@ -162,7 +162,7 @@ router.get("/kpis/receita-total", async (req, res) => {
       const r = rows[0] || {}
       
       res.json({ 
-        total_valor_cupom: Number(rows[0].total_valor_cupom ?? 0),
+        total_valor_cupom: Number(r.total_geral ?? 0),
         mes_atual: Number(r.mes_atual ?? 0),
         mes_anterior: Number(r.mes_anterior ?? 0),
         variacao_percent: Number(r.variacao_percent ?? 0),
