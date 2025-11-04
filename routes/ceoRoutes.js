@@ -255,7 +255,7 @@ router.get("/kpis/total-parceiros", async (req, res) => {
     const orderBy = sortColMap[sort]
 
     const sql = `
-      ${SQL_BASE_PARCEIROS}
+      ${SQL_TOTAL_PARCEIROS}
       ORDER BY ${orderBy} ${order.toUpperCase()}, nome_estabelecimento
       LIMIT $3 OFFSET $4
     `
