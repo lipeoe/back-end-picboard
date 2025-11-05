@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require("express")
 const cors = require("cors")
 const kpisCEO = require("./routes/ceoRoutes")
+const kpisCEOClientes = require("./routes/ceoRoutesClientes")
 const kpisCFO = require("./routes/cfoRoutes")
 const userLogin = require("./routes/loginRoutes")
 const { startScheduler } = require("./jobs/jobScheduler")
@@ -15,7 +16,8 @@ app.use(cors())
 const { runOnce } = require('./dataGenerator/dataRunner')
 
 app.use("/auth", userLogin)
-app.use("/api", kpisCEO, kpisCFO)
+app.use("/api", kpisCEO, kpisCEOClientes, kpisCFO)
+
 
 app.listen(PORT, async () =>{
     console.log(`Servidor rodando em: ${PORT}`)

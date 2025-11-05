@@ -1,4 +1,3 @@
-// jobs/scheduler.js
 const cron = require('node-cron')
 const { createSessionsForUser } = require('../dataGenerator/genSessions')
 const { createUsers } = require('../dataGenerator/createUsers')
@@ -7,7 +6,7 @@ const picboardDB = require('../db/db.js')
 const ENABLE_JOBS = process.env.ENABLE_SIM_JOBS === 'true'
 
 
-async function pickRandomUserIds(limit = 10) {
+async function pickRandomUserIds(limit = 10000) {
   const { rows } = await picboardDB.query(`SELECT id_usuario FROM picmoney_players ORDER BY random() LIMIT $1`, [limit]);
   return rows.map(r => r.id_usuario)
 }
@@ -49,7 +48,7 @@ function startScheduler() {
   }
 
 
-  cron.schedule(process.env.SIM_SESSIONS_CRON || '*/10 * * * *', () => {
+  cron.schedule(process.env.SIM_SESSIONS_CRON || '0 1 * * * *', () => {
     console.log('[SIM] running createSessions job')
     jobCreateSessions()
   })
