@@ -61,7 +61,7 @@ async function createUsers({
   const zonasPool = ['Norte', 'Sul', 'Leste', 'Oeste', 'Centro']
   const sexos = ['Masculino', 'Feminino']
 
-  // Quais colunas existem na tabela?
+
   const { rows: colsRows } = await picboardDB.query(
     `
     SELECT column_name, column_default
@@ -101,8 +101,8 @@ async function createUsers({
   const rows = []
   for (let i = 0; i < count; i++) {
     
-    const data_cadastro = randomDateInLastNDays(365)
-    const ultima_sessao = dayjs(data_cadastro).add(randomInt(0, 180), 'day')
+    const data_cadastro = randomDateInLastNDays(7)
+    const ultima_sessao = dayjs(data_cadastro).add(randomInt(0, 5), 'day')
     const ultima_sessao_str = ultima_sessao.isAfter(dayjs())
       ? dayjs().format('YYYY-MM-DD')
       : ultima_sessao.format('YYYY-MM-DD')

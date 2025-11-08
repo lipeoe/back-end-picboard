@@ -6,21 +6,21 @@ const picboardDB = require('../db/db.js')
 const ENABLE_JOBS = process.env.ENABLE_SIM_JOBS === 'true'
 
 
-async function pickRandomUserIds(limit = 10000) {
+async function pickRandomUserIds(limit = 500) {
   const { rows } = await picboardDB.query(`SELECT id_usuario FROM picmoney_players ORDER BY random() LIMIT $1`, [limit]);
   return rows.map(r => r.id_usuario)
 }
 
 async function jobCreateSessions() {
   try {
-    const ids = await pickRandomUserIds(Number(process.env.SIM_USERS_PER_RUN || 10))
+    const ids = await pickRandomUserIds(Number(process.env.SIM_USERS_PER_RUN || 20))
     let total = 0;
     for (const id of ids) {
       const inserted = await createSessionsForUser({
         userId: id,
         minSessions: Number(process.env.SIM_MIN_SESSIONS || 1),
         maxSessions: Number(process.env.SIM_MAX_SESSIONS || 3),
-        lastNDays: Number(process.env.SIM_DAYS || 180),
+        lastNDays: Number(process.env.SIM_DAYS || 60),
         table: process.env.PLAYERS_TABLE || 'picmoney_players'
       });
       total += inserted

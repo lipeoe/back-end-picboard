@@ -5,7 +5,7 @@ function randomInt(min, max) {
   return Math.floor(min + Math.random() * (max - min + 1))
 }
 
-function randomDateInLastNDays(nDays = 180) {
+function randomDateInLastNDays(nDays = 40) {
   const now = dayjs();
   const daysBack = randomInt(0, nDays)
   const d = now.subtract(daysBack, 'day')
@@ -22,7 +22,7 @@ async function getExistingCategories(table = 'picmoney_players') {
     FROM ${table}
     WHERE categoria_frequentada IS NOT NULL
       AND btrim(categoria_frequentada) <> ''
-    LIMIT 2000;
+    LIMIT 1000;
   `
   const { rows } = await picboardDB.query(sql)
   const cats = rows.map(r => String(r.categoria_frequentada)).filter(Boolean)
@@ -48,7 +48,7 @@ async function createSessionsForUser({
   userId,
   minSessions = 1,
   maxSessions = 3,
-  lastNDays = 180,
+  lastNDays = 60,
   table = 'picmoney_players',
   batchSize = 800
 }) {
