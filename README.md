@@ -287,7 +287,7 @@ Soma e média diária de usuários ativos (DAU) por dia da semana no mês atual.
 [ { "dia_semana": "segunda", "ordem_semana": 1, "usuarios_ativos_mes": 0, "media_diaria_no_mes": 0 } ]
 ```
 
-#### GET `/api/kpis/usuarios-ultimos-30-dias`
+#### GET `/api/kpis/usuarios-ultimos-30d`
 
 Série diária dos últimos 30 dias com contagem de usuários únicos por dia.
 
@@ -297,7 +297,7 @@ Série diária dos últimos 30 dias com contagem de usuários únicos por dia.
 [ { "dia": "2025-10-15", "usuarios": 0 } ]
 ```
 
-#### GET `/api/kpis/tempo-sessao/distrib`
+#### GET `/api/kpis/tempo-sessao/time`
 
 Distribuição de `tempo_online` por faixas (0–15, 16–30, 31–45, 46–60, 61–120, >120 minutos).
 
