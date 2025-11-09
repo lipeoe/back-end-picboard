@@ -5,6 +5,7 @@ const kpisCEO = require("./routes/ceoRoutes")
 const kpisCEOClientes = require("./routes/ceoRoutesClientes")
 const kpisCFO = require("./routes/cfoRoutes")
 const userLogin = require("./routes/loginRoutes")
+const userSignup = require("./routes/signupRoutes")
 const { startScheduler } = require("./jobs/jobScheduler")
 const PORT = process.env.PORT || 3001
 
@@ -15,7 +16,7 @@ app.use(cors())
 
 const { runOnce } = require('./dataGenerator/dataRunner')
 
-app.use("/auth", userLogin)
+app.use("/auth", userLogin, userSignup)
 app.use("/api", kpisCEO, kpisCEOClientes, kpisCFO)
 
 
