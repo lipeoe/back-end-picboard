@@ -6,6 +6,7 @@ const kpisCEOClientes = require("./routes/ceoRoutesClientes")
 const kpisCFO = require("./routes/cfoRoutes")
 const userLogin = require("./routes/loginRoutes")
 const userSignup = require("./routes/signupRoutes")
+const exportRouter = require('./routes/export')
 const { startScheduler } = require("./jobs/jobScheduler")
 const PORT = process.env.PORT || 3001
 
@@ -18,6 +19,7 @@ const { runOnce } = require('./dataGenerator/dataRunner')
 
 app.use("/auth", userLogin, userSignup)
 app.use("/api", kpisCEO, kpisCEOClientes, kpisCFO)
+app.use('/api', exportRouter)
 
 
 app.listen(PORT, async () =>{
