@@ -4,7 +4,7 @@ const SECRET_KEY = process.env.JWT_SECRET_KEY
 const bcrypt = require('bcrypt')
 
 const SQL_USER = `
-  SELECT user_id, cargo, senha
+  SELECT user_id, nome, email, cargo, senha
   FROM users
   WHERE user_id = $1
   LIMIT 1;
@@ -55,6 +55,8 @@ async function login(req, res) {
     return res.status(200).json({
       msg: "Usuário logado",
       token,
+      user_name: user.nome,
+      user_email: user.email,
       user_id: user.user_id,
       role: user.cargo || "user",
       expires_in: 3600, 
